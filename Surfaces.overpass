@@ -1,0 +1,45 @@
+/*
+This overpass query loads all highways for which a surface tag is present.
+
+Depending on the surface, another color is used to render.
+
+*/
+
+[out:json];
+
+(
+  way[surface]({{bbox}});
+  node[surface]({{bbox}});
+  relation[surface]({{bbox}});
+);
+out body;
+>;
+out skel qt;
+
+{{style:
+node, way, area
+{ color:blue; fill-color:blue; }
+
+way[surface=sett][sett:pattern=bogen]
+{ color:brown; fill-color:brown; dashes: 4,8}
+
+way[surface=sett],way[surface=wood]
+{ color:brown; fill-color:brown; }
+
+
+way[surface=asphalt]
+{ color:black; fill-color:black }
+
+way[surface=concrete],way[surface=concrete:plates]
+{ color:grey; fill-color:grey }
+
+way[surface=paving_stones],way[surface=paving_stones:20],way[surface=paving_stones:30]
+{ color:pink; fill-color:pink }
+
+way[surface=cobblestone],way[surface=paved],way[surface=unpaved]
+{ color:red; fill-color:red }
+
+way[surface=compacted]
+{ color:yellow; fill-color:yellow }
+
+}}
