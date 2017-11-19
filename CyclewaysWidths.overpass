@@ -20,7 +20,7 @@ out skel qt;
 node, way, area
 { color:red; fill-color:red; }
 
-way[width]
+way[width][highway=cycleway]
 { color:green; fill-color:green; text: width }
 
 way[cycleway:width]
