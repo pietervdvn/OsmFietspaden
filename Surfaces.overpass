@@ -7,6 +7,7 @@ Depending on the surface, another color is used to render.
 
 [out:json];
 
+
 (
   way[surface]({{bbox}});
   node[surface]({{bbox}});
